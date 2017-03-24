@@ -18,7 +18,7 @@ module.exports = {
 				}
 				else {
 					User.signin(req.body.email, req.body.password, function(err, match) {
-						if (err) {
+						if (!match) {
 							next(new Error('Wrong password!'));
 						}
 						else {
